@@ -134,11 +134,18 @@ const Login = () => {
           >
             {isSignInForm ? "Sign In" : "Sign Up"}
           </button>
+
           <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
             {isSignInForm
               ? "New to Netflix? Sign up now"
               : "Already registered? Sign in now"}
           </p>
+
+          <div className="text-white">
+            <p>demo email: testdemo@gmail.com</p>
+            <br />
+            <p>password: Demo@123</p>
+          </div>
         </form>
       </div>
     </div>

@@ -7,11 +7,14 @@ import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../utils/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { toggleGptSearchView } from "../utils/gptSlice";
+import { SUPPORTED_LANGUAGES } from "../utils/constants";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -53,24 +56,40 @@ const Header = () => {
     dispatch(toggleGptSearchView());
   };
 
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
-    <div className="absolute flex justify-between w-screen py-2 bg-gradient-to-b from-black z-10">
+    <div className="absolute w-screen px-8 py-2 flex flex-col md:flex-row justify-between  py-2 bg-gradient-to-b from-black z-10">
       <img
-        className="w-36  "
+        className="w-36  mx-auto md:mx-0"
         src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
         alt="netflix-logo"
       />
       {user && (
         <div className="flex p-2">
+          {showGptSearch && (
+            <select
+              className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
           <button
             className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
             onClick={handleGptSearchClick} // Make sure this is correctly placed
           >
-            GPT Search
+            {showGptSearch ? "Home" : "Search Movies"}
           </button>
-          <img className="w-12 h-12 rounded-full" src={user.photoURL} />
+          {/* <img className="w-12 h-12 rounded-full" src={user.photoURL} /> */}
           <button
-            className="font-bold bg-blue-600 rounded-lg"
+            className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
             onClick={handleSignOut}
           >
             Sign Out

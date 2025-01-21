@@ -15,6 +15,10 @@ const lang = {
     search: "buscar",
     gptSearchPlaceholder: "¿Qué te gustaría ver hoy?",
   },
+  chinese: {
+    search: "buscar",
+    gptSearchPlaceholder: "今天你想看什么？",
+  },
 };
 
 export default lang;

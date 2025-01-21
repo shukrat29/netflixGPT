@@ -6,4 +6,13 @@ export const API_OPTIONS = {
   },
 };
 
-export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";
+export const IMG_CDN_URL = import.meta.env.VITE_IMG_CDN_URL;
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "nepali", name: "Nepali" },
+  { identifier: "spanish", name: "Spanish" },
+];
+
+export const OPENAI_KEY = import.meta.env.VITE_OPENAI_KEY;
