@@ -18,14 +18,16 @@ const Browse = () => {
     <div>
       <Header />
 
-      {showGptSearch ? (
-        <GptSearch />
-      ) : (
-        <>
-          <MainContainer />
-          <SecondaryContainer />
-        </>
-      )}
+      <div>
+        {showGptSearch ? (
+          <GptSearch />
+        ) : (
+          <div className="flex flex-col">
+            <MainContainer />
+            <SecondaryContainer />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
