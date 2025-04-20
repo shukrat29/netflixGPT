@@ -59,16 +59,24 @@ VITE_OPENAI_KEY=your_openai_api_key
 # TMDB Image CDN URL
 VITE_IMG_CDN_URL=https://image.tmdb.org/t/p/w500/
 
-# 1. Clone the repository
-git clone https://github.com/shukrat29/netflixGPT.git
 
-# 2. Navigate to the project directory
-cd netflixgpt
-
-# 3. Install dependencies
-npm install
-
-# 4. Start the development server
-npm run dev
 
 ```
+
+### 🧰 Getting Started
+
+To get started with **NetflixGPT** and run it locally on your machine, follow these steps:
+
+1. Clone the repository to your local machine by running:
+
+   ```bash
+   git clone https://github.com/shukrat29/netflixGPT.git
+   ```
+
+2. Install the required project dependencies using npm:
+   npm install
+
+3. Finally, start the development server with:
+   npm run dev
+
+Your application will now be live at http://localhost:5173 (or another port if specified).
