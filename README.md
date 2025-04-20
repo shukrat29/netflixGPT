@@ -2,7 +2,7 @@
 
 ### 🚀 Overview
 
-**NetflixGPT** is a modern and dynamic movie streaming web application built with **React.js**, integrated with the **TMDB API** and **OpenAI API**. It delivers real-time movie data, natural language search capabilities, and a smooth browsing experience—all packaged in a clean, responsive UI.
+**NetflixGPT** is a modern and dynamic movie streaming web application built with **React.js**, integrated with the **TMDB API** and **OpenAI API**. It delivers real-time movie data, search capabilities, and a smooth browsing experience—all packaged in a clean, responsive UI.
 
 Deployed on **Firebase** for fast and scalable performance.
 
@@ -37,16 +37,11 @@ Deployed on **Firebase** for fast and scalable performance.
 
 To get started with **NetflixGPT** and run it locally on your machine, follow these steps:
 
-1. Clone the repository to your local machine by running:
+```bash
+# 1. Clone the repository to your local machine
+git clone https://github.com/shukrat29/netflixGPT.git
 
-   ```bash
-   git clone https://github.com/shukrat29/netflixGPT.git
-
-   ```
-
-   2. create a `.env` file in the root directory and add the following environment variables:
-
-```env
+# 2. Create a .env file in the root directory and add the following environment variables
 # Firebase Configuration
 VITE_FIREBASE_API_KEY=your_firebase_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
@@ -65,20 +60,11 @@ VITE_OPENAI_KEY=your_openai_api_key
 # TMDB Image CDN URL
 VITE_IMG_CDN_URL=https://image.tmdb.org/t/p/w500/
 
+# 3. Install the required project dependencies
+npm install
 
+# 4. Finally, start the development server
+npm run dev
 
+# Your application will now be live at http://localhost:5173 (or another port if specified)
 ```
-
-3. Install the required project dependencies using npm:
-
-```npm install
-
-```
-
-4. Finally, start the development server with:
-
-   ```npm run dev
-
-   ```
-
-Your application will now be live at http://localhost:5173 (or another port if specified).
