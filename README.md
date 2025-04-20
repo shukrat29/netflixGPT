@@ -60,13 +60,14 @@ VITE_IMG_CDN_URL=https://image.tmdb.org/t/p/w500/
 
 3. Install the required project dependencies using npm:
 
-```npm install
-
+```bash
+npm install
 ```
 
 4. Finally, start the development server with:
 
-```npm run dev
+```bash
+npm run dev
 
 ```
 
