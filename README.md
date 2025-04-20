@@ -1,20 +1,74 @@
-## NetflixGPT
+## 🎬 NetflixGPT
 
-### Overview
+### 🚀 Overview
 
-NetflixGPT is a dynamic streaming platform built with React, powered by the TMDB Movie API and the OpenAI API. It offers users an interactive experience with movie suggestions and search capabilities.
+**NetflixGPT** is a modern and dynamic movie streaming web application built with **React.js**, integrated with the **TMDB API** and **OpenAI API**. It delivers real-time movie data, natural language search capabilities, and a smooth browsing experience—all packaged in a clean, responsive UI.
 
-### Features
+Deployed on **Firebase** for fast and scalable performance.
 
-- **Real-Time Movie Data**: Fetches data from the TMDB Movie API for an extensive movie library.
-- **OpenAI Integration**: Utilizes the OpenAI API for personalized movie recommendations and search capabilities.
-- **User-Friendly Interface**: Clean and intuitive UI for seamless navigation.
+### ✨ Features
 
-### Technologies Used
+- 🔍 **Real-Time Movie Listings**  
+  Explore an extensive movie database with live data from the TMDB API.
+
+- 💬 **AI-Powered Natural Language Search**  
+  Search for movies using conversational queries like:  
+  _“Feel-good movies from the 2000s”_  
+  _“Movies like The Matrix”_  
+  _“Best space adventure films”_
+
+- ▶️ **Trailer Playback**  
+  Watch official trailers directly within the app via TMDB's video content.
+
+- 📱 **Responsive Design**  
+  Built with Tailwind CSS to look great on both desktop and mobile devices.
+
+---
+
+### 🛠️ Tech Stack
 
 - **Frontend**: React.js
-- **Backend**: Firebase
+- **Backend & Hosting**: Firebase
 - **APIs**:
-  - TMDB Movie API
-  - OpenAI API
+  - [TMDB (The Movie Database) API](https://www.themoviedb.org/documentation/api)
+  - [OpenAI API](https://platform.openai.com/docs)
 - **Styling**: Tailwind CSS
+
+---
+
+### ⚙️ Environment Variables
+
+Before running the project, create a `.env` file in the root directory and add the following environment variables:
+
+```env
+# Firebase Configuration
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_firebase_app_id
+VITE_FIREBASE_MEASUREMENT_ID=your_firebase_measurement_id
+
+# TMDB API Auth Token
+VITE_API_AUTH_TOKEN=your_tmdb_auth_token
+
+# OpenAI API Key
+VITE_OPENAI_KEY=your_openai_api_key
+
+# TMDB Image CDN URL
+VITE_IMG_CDN_URL=https://image.tmdb.org/t/p/w500/
+
+# 1. Clone the repository
+git clone https://github.com/shukrat29/netflixGPT.git
+
+# 2. Navigate to the project directory
+cd netflixgpt
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
+npm run dev
+
+```
