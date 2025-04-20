@@ -11,11 +11,8 @@ Deployed on **Firebase** for fast and scalable performance.
 - 🔍 **Real-Time Movie Listings**  
   Explore an extensive movie database with live data from the TMDB API.
 
-- 💬 **AI-Powered Natural Language Search**  
-  Search for movies using conversational queries like:  
-  _“Feel-good movies from the 2000s”_  
-  _“Movies like The Matrix”_  
-  _“Best space adventure films”_
+- 💬 **AI-Powered Search**  
+  Search for movies using keywords or descriptions, powered by OpenAI.
 
 - ▶️ **Trailer Playback**  
   Watch official trailers directly within the app via TMDB's video content.
@@ -36,9 +33,18 @@ Deployed on **Firebase** for fast and scalable performance.
 
 ---
 
-### ⚙️ Environment Variables
+### 🧰 Getting Started
 
-Before running the project, create a `.env` file in the root directory and add the following environment variables:
+To get started with **NetflixGPT** and run it locally on your machine, follow these steps:
+
+1. Clone the repository to your local machine by running:
+
+   ```bash
+   git clone https://github.com/shukrat29/netflixGPT.git
+
+   ```
+
+   2. create a `.env` file in the root directory and add the following environment variables:
 
 ```env
 # Firebase Configuration
@@ -63,20 +69,16 @@ VITE_IMG_CDN_URL=https://image.tmdb.org/t/p/w500/
 
 ```
 
-### 🧰 Getting Started
+3. Install the required project dependencies using npm:
 
-To get started with **NetflixGPT** and run it locally on your machine, follow these steps:
+```npm install
 
-1. Clone the repository to your local machine by running:
+```
 
-   ```bash
-   git clone https://github.com/shukrat29/netflixGPT.git
+4. Finally, start the development server with:
+
+   ```npm run dev
+
    ```
-
-2. Install the required project dependencies using npm:
-   npm install
-
-3. Finally, start the development server with:
-   npm run dev
 
 Your application will now be live at http://localhost:5173 (or another port if specified).
