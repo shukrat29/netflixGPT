@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
-import { addUser, removeUser } from "../utils/userSlice";
+import { addUser, removeUser } from "../redux/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
-import { toggleGptSearchView } from "../utils/gptSlice";
+import { toggleGptSearchView } from "../redux/gptSlice";
 import { SUPPORTED_LANGUAGES } from "../utils/constants";
-import { changeLanguage } from "../utils/configSlice";
+import { changeLanguage } from "../redux/configSlice";
 
 const Header = () => {
   const dispatch = useDispatch();

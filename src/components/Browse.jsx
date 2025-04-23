@@ -17,13 +17,14 @@ const Browse = () => {
   return (
     <div>
       <Header />
-
       <div>
         {showGptSearch ? (
           <GptSearch />
         ) : (
           <div className="flex flex-col">
+            {/* video background and video title */}
             <MainContainer />
+            {/* now playing, popular movies and top rated movies */}
             <SecondaryContainer />
           </div>
         )}

@@ -6,6 +6,8 @@ export const API_OPTIONS = {
   },
 };
 
+export const API_BASE_URL = "https://api.themoviedb.org/3";
+
 export const IMG_CDN_URL = import.meta.env.VITE_IMG_CDN_URL;
 
 export const SUPPORTED_LANGUAGES = [
