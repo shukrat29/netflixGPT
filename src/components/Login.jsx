@@ -7,12 +7,10 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/userSlice";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
@@ -88,6 +86,9 @@ const Login = () => {
     setIsSignInForm(!isSignInForm);
   };
 
+  // google signin
+  const handleSignInGoogle = () => {};
+
   return (
     <div>
       <Header />
@@ -95,7 +96,7 @@ const Login = () => {
         <img
           className="object-cover w-full h-full absolute -z-10"
           src="https://assets.nflxext.com/ffe/siteui/vlv3/bfc0fc46-24f6-4d70-85b3-7799315c01dd/web/AU-en-20240923-TRIFECTA-perspective_71126b8c-6305-4da6-a0d5-b4ca8c9e3fc6_large.jpg"
-          alt=""
+          alt="background-image"
         />
         <form
           onSubmit={(e) => e.preventDefault()}
@@ -133,18 +134,32 @@ const Login = () => {
           >
             {isSignInForm ? "Sign In" : "Sign Up"}
           </button>
+          {/* Forgot password section */}
+          {isSignInForm && (
+            <button className="text-red-700">Forgot Password?</button>
+          )}
+
+          {/* Continue with google */}
+          <button
+            onClick={handleSignInGoogle}
+            className="flex items-center justify-center gap-1  w-full p-3 my-6 border border-gray-300 rounded-md shadow-sm hover:shadow-md transition duration-200 bg-white text-gray-700 font-medium"
+          >
+            <img
+              src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+              alt="Google logo"
+              className="w-8 h-8"
+            />
+            <span>Continue with Google</span>
+          </button>
 
           <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
             {isSignInForm
               ? "New to NetflixGPT? Sign up now"
               : "Already registered? Sign in now"}
           </p>
-
-          <div className="text-white">
-            <p>demo email: testdemo@gmail.com</p>
-            <br />
-            <p>password: Demo@123</p>
-          </div>
+          <p>or try NetflixGPT with our demo account!</p>
+          <p>email: testdemo@gmail.com</p>
+          <p>password: Demo@123</p>
         </form>
       </div>
     </div>

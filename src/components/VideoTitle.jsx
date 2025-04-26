@@ -1,6 +1,6 @@
 import React from "react";
 
-const VideoTitle = ({ title, overview }) => {
+const VideoTitle = ({ title, overview, isPlaying, onTogglePlayPause }) => {
   return (
     <div className="hidden md:block absolute z-10 w-full h-full pt-[30%] px-6 sm:px-12 md:px-24 text-white bg-gradient-to-r from-black">
       <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">{title}</h1>
@@ -8,8 +8,11 @@ const VideoTitle = ({ title, overview }) => {
         {overview}
       </p>
       <div>
-        <button className="bg-gray-500 text-white p-2 text-sm sm:text-lg rounded-lg w-20 sm:w-24 mx-2 hover:bg-opacity-50">
-          ▶️Play
+        <button
+          className="bg-gray-500 text-white p-2 text-sm sm:text-lg rounded-lg w-20 sm:w-24 mx-2 hover:bg-opacity-50"
+          onClick={onTogglePlayPause}
+        >
+          {isPlaying ? "⏸️ Pause" : "▶️ Play"}
         </button>
         <button className="bg-gray-500 text-white p-2 text-sm sm:text-lg rounded-lg w-20 sm:w-24 hover:bg-opacity-50">
           More Info

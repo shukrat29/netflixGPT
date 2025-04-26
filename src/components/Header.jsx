@@ -61,41 +61,47 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute w-screen px-8 flex flex-col md:flex-row justify-between  py-2 bg-gradient-to-b from-black z-20">
-      <img
-        className="w-36  mx-auto md:mx-0"
-        src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-        alt="netflix-logo"
-      />
-      {user && (
-        <div className="flex p-2">
-          {showGptSearch && (
-            <select
+    <div className="absolute w-screen px-8 flex justify-between align-top items-center  bg-gradient-to-b from-black z-20">
+      {/* logo */}
+      <div className="flex items-center">
+        <img
+          className="w-36  mx-auto md:mx-0"
+          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          alt="netflix-logo"
+        />
+      </div>
+      {/* right side search and signout button */}
+      <div>
+        {user && (
+          <div className="flex p-2">
+            {showGptSearch && (
+              <select
+                className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
+                onChange={handleLanguageChange}
+              >
+                {SUPPORTED_LANGUAGES.map((lang) => (
+                  <option key={lang.identifier} value={lang.identifier}>
+                    {lang.name}
+                  </option>
+                ))}
+              </select>
+            )}
+            <button
               className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
-              onChange={handleLanguageChange}
+              onClick={handleGptSearchClick} // Make sure this is correctly placed
             >
-              {SUPPORTED_LANGUAGES.map((lang) => (
-                <option key={lang.identifier} value={lang.identifier}>
-                  {lang.name}
-                </option>
-              ))}
-            </select>
-          )}
-          <button
-            className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
-            onClick={handleGptSearchClick} // Make sure this is correctly placed
-          >
-            {showGptSearch ? "Home" : "Search Movies"}
-          </button>
-          {/* <img className="w-12 h-12 rounded-full" src={user.photoURL} /> */}
-          <button
-            className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
-            onClick={handleSignOut}
-          >
-            Sign Out
-          </button>
-        </div>
-      )}
+              {showGptSearch ? "Home" : "Search Movies"}
+            </button>
+            {/* <img className="w-12 h-12 rounded-full" src={user.photoURL} /> */}
+            <button
+              className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
+              onClick={handleSignOut}
+            >
+              Sign Out
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
