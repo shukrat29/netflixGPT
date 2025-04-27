@@ -8,15 +8,17 @@ const SecondaryContainer = () => {
   return (
     movies.nowPlayingMovies &&
     movies.popularMovies &&
-    movies.topRatedMovies && (
-      <div className="bg-black pt-20 md:pt-28 lg:pt-36">
-        <div className="relative z-20 mt-0 pl-12">
+    movies.topRatedMovies &&
+    movies.upcomingMovies && (
+      <div className="bg-black pt-28 md:pt-28 lg:pt-10">
+        <div className="relative z-20 -mt-48 md:-mt-52  lg:-mt-60">
           <MovieList title={"Now playing"} movies={movies.nowPlayingMovies} />
           <MovieList title={"Popular Movies"} movies={movies.popularMovies} />
           <MovieList
             title={"Top Rated Movies"}
             movies={movies.topRatedMovies}
           />
+          <MovieList title={"Upcoming Movies"} movies={movies.upcomingMovies} />
         </div>
       </div>
     )

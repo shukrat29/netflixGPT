@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../redux/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
@@ -88,10 +88,10 @@ const Header = () => {
               </select>
             )}
             <button
-              className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
+              className="py-2 m-2 bg-blue-600 text-white rounded-lg px-4"
               onClick={handleGptSearchClick}
             >
-              {showGptSearch ? "Home" : "Search Movies"}
+              {showGptSearch ? "Home" : "Search"}
             </button>
 
             <div className="relative flex items-center gap-2 mx-2">
@@ -105,11 +105,12 @@ const Header = () => {
               {/* Dropdown menu */}
               {isDropdownVisible && (
                 <div className="absolute top-full right-1 bg-white text-black p-2 rounded-lg shadow-lg w-40">
-                  <p className=" font-semibold text-center">
-                    {user?.displayName?.split(" ")[0]}
+                  <p className="text-blue-700 font-semibold text-center">
+                    {user?.displayName}
                   </p>
+
                   <button
-                    className="block w-full py-2 text-center text-black font-semibold"
+                    className="block w-full py-2 text-center text-gray-600 font-semibold"
                     onClick={handleSignOut}
                   >
                     Sign Out
