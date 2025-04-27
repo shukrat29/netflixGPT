@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import Header from "./Header";
+import Header from "../components/Header";
 import { checkValidData } from "../utils/Validate";
 import {
   createUserWithEmailAndPassword,
@@ -8,7 +8,9 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { addUser } from "../redux/userSlice";
+import OAuth from "../components/Oauth";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -86,9 +88,6 @@ const Login = () => {
     setIsSignInForm(!isSignInForm);
   };
 
-  // google signin
-  const handleSignInGoogle = () => {};
-
   return (
     <div>
       <Header />
@@ -136,30 +135,21 @@ const Login = () => {
           </button>
           {/* Forgot password section */}
           {isSignInForm && (
-            <button className="text-red-700">Forgot Password?</button>
+            <Link
+              to="/forgot-password"
+              className="text-red-700 block text-center"
+            >
+              Forgot Password?
+            </Link>
           )}
-
+          <h1 className="text-center">or</h1>
           {/* Continue with google */}
-          <button
-            onClick={handleSignInGoogle}
-            className="flex items-center justify-center gap-1  w-full p-3 my-6 border border-gray-300 rounded-md shadow-sm hover:shadow-md transition duration-200 bg-white text-gray-700 font-medium"
-          >
-            <img
-              src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
-              alt="Google logo"
-              className="w-8 h-8"
-            />
-            <span>Continue with Google</span>
-          </button>
-
+          <OAuth />
           <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
             {isSignInForm
               ? "New to NetflixGPT? Sign up now"
               : "Already registered? Sign in now"}
           </p>
-          <p>or try NetflixGPT with our demo account!</p>
-          <p>email: testdemo@gmail.com</p>
-          <p>password: Demo@123</p>
         </form>
       </div>
     </div>

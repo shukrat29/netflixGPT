@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -16,11 +16,14 @@ const Header = () => {
   const user = useSelector((store) => store.user);
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
+  // State to manage dropdown visibility
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {})
       .catch((error) => {
-        // An error happened.
+        // TODO error page
         navigate("/error");
       });
   };
@@ -28,7 +31,6 @@ const Header = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in
         const { uid, email, displayName, photoURL } = user;
         dispatch(
           addUser({
@@ -39,20 +41,16 @@ const Header = () => {
           })
         );
         navigate("/browse");
-        // ...
       } else {
-        // User is signed out
         dispatch(removeUser());
         navigate("/");
       }
     });
-    // unsubscribe when component unmounts
+
     return () => unsubscribe();
-  }, []);
+  }, [dispatch, navigate]);
 
   const handleGptSearchClick = () => {
-    console.log("Button clicked!");
-    // Toggle GPT Search page
     dispatch(toggleGptSearchView());
   };
 
@@ -60,17 +58,20 @@ const Header = () => {
     dispatch(changeLanguage(e.target.value));
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
+
   return (
-    <div className="absolute w-screen px-8 flex justify-between align-top items-center  bg-gradient-to-b from-black z-20">
-      {/* logo */}
+    <div className="absolute w-screen px-8 flex justify-between align-top items-center bg-gradient-to-b from-black z-20">
       <div className="flex items-center">
         <img
-          className="w-36  mx-auto md:mx-0"
+          className="w-36 mx-auto md:mx-0"
           src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
           alt="netflix-logo"
         />
       </div>
-      {/* right side search and signout button */}
+
       <div>
         {user && (
           <div className="flex p-2">
@@ -88,17 +89,34 @@ const Header = () => {
             )}
             <button
               className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
-              onClick={handleGptSearchClick} // Make sure this is correctly placed
+              onClick={handleGptSearchClick}
             >
               {showGptSearch ? "Home" : "Search Movies"}
             </button>
-            {/* <img className="w-12 h-12 rounded-full" src={user.photoURL} /> */}
-            <button
-              className="py-2 m-2 bg-blue-600 text-white rounded-lg px-2"
-              onClick={handleSignOut}
-            >
-              Sign Out
-            </button>
+
+            <div className="relative flex items-center gap-2 mx-2">
+              <img
+                className="w-10 h-10 rounded-full cursor-pointer"
+                src={user?.photoURL}
+                alt="user icon"
+                onClick={toggleDropdown}
+              />
+
+              {/* Dropdown menu */}
+              {isDropdownVisible && (
+                <div className="absolute top-full right-1 bg-white text-black p-2 rounded-lg shadow-lg w-40">
+                  <p className=" font-semibold text-center">
+                    {user?.displayName?.split(" ")[0]}
+                  </p>
+                  <button
+                    className="block w-full py-2 text-center text-black font-semibold"
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>

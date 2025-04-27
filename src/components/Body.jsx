@@ -1,9 +1,9 @@
-// Body.js
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./Login";
-import Browse from "./Browse";
-import MovieDetails from "./MovieDetails"; // Import MovieDetails component
+import Login from "../pages/Login";
+import Browse from "../pages/Browse";
+import MovieDetails from "./MovieDetails";
+import ForgotPassword from "./ForgotPassword";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -16,8 +16,12 @@ const Body = () => {
       element: <Browse />,
     },
     {
-      path: "/movie/:id", // Define the route for MovieDetails
-      element: <MovieDetails />, // Use MovieDetails component
+      path: "/movie/:id",
+      element: <MovieDetails />,
+    },
+    {
+      path: "/forgot-password",
+      element: <ForgotPassword />,
     },
   ]);
 
