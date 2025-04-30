@@ -5,11 +5,11 @@ import MainContainer from "../components/MainContainer";
 import SecondaryContainer from "../components/SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
-import GptSearch from "../gpt/GptSearch";
+import GptSearchPage from "./GptSearchPage";
 import { useSelector } from "react-redux";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
 
-const Browse = () => {
+const BrowsePage = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   // Custom hooks
   useNowPlayingMovies();
@@ -21,7 +21,7 @@ const Browse = () => {
       <Header />
       <div>
         {showGptSearch ? (
-          <GptSearch />
+          <GptSearchPage />
         ) : (
           <div className="flex flex-col">
             {/* video background and video title */}
@@ -35,4 +35,4 @@ const Browse = () => {
   );
 };
 
-export default Browse;
+export default BrowsePage;

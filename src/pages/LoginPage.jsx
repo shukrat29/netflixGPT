@@ -10,9 +10,9 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addUser } from "../redux/userSlice";
-import OAuth from "../components/Oauth";
+import OAuth from "../auth/OAuth";
 
-const Login = () => {
+const LoginPage = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
@@ -156,4 +156,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

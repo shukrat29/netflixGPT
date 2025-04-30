@@ -54,7 +54,7 @@ const MovieDetails = () => {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        Back
+        Go Back
       </button>
 
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 mt-4 px-4">

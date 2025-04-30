@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../redux/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
@@ -63,7 +63,7 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute w-screen px-8 flex justify-between align-top items-center bg-gradient-to-b from-black z-20">
+    <div className="absolute w-full px-2 md:px-8 flex justify-between align-top items-center bg-gradient-to-b from-black z-20">
       <div className="flex items-center">
         <img
           className="w-36 mx-auto md:mx-0"
@@ -88,13 +88,13 @@ const Header = () => {
               </select>
             )}
             <button
-              className="py-2 m-2 bg-blue-600 text-white rounded-lg px-4"
+              className="py-2 m-2 bg-blue-600 text-white rounded-lg px-1"
               onClick={handleGptSearchClick}
             >
-              {showGptSearch ? "Home" : "Search"}
+              {showGptSearch ? "Home" : "GPT Search"}
             </button>
 
-            <div className="relative flex items-center gap-2 mx-2">
+            <div className="relative flex items-center gap-2 mx-1">
               <img
                 className="w-10 h-10 rounded-full cursor-pointer"
                 src={user?.photoURL}
