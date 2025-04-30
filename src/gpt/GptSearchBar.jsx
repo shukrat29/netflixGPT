@@ -10,7 +10,6 @@ const GptSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
 
-  // search movie in TMDB
   const searchMovieTMDB = async (movie) => {
     const data = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
@@ -23,10 +22,6 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
-    console.log(searchText.current.value);
-
-    // make an api call to openAI and get movies results
-
     const gptQuery =
       "Act as a Movie Recommendation system and suggest some movies for the query:" +
       searchText.current.value +
@@ -39,15 +34,12 @@ const GptSearchBar = () => {
     if (!gptResults.choices) {
       // write error handling
     }
-    console.log(gptResults.choices?.[0]?.message?.content);
+
     const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
-    console.log(gptMovies);
-    // For each movie i will search TMDB API
+
     const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
-    // array of promise
 
     const tmdbResults = await Promise.all(promiseArray);
-    console.log(tmdbResults);
 
     dispatch(
       addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })

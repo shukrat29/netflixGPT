@@ -63,7 +63,6 @@ const MovieDetails = () => {
             <iframe
               className="w-full h-full rounded-md"
               src={`https://www.youtube.com/embed/${trailerKey}`}
-              frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
               title="Movie Trailer"

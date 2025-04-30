@@ -133,7 +133,7 @@ const LoginPage = () => {
           >
             {isSignInForm ? "Sign In" : "Sign Up"}
           </button>
-          {/* Forgot password section */}
+
           {isSignInForm && (
             <Link
               to="/forgot-password"

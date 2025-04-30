@@ -16,7 +16,6 @@ const Header = () => {
   const user = useSelector((store) => store.user);
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
-  // State to manage dropdown visibility
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   const handleSignOut = () => {
@@ -102,7 +101,6 @@ const Header = () => {
                 onClick={toggleDropdown}
               />
 
-              {/* Dropdown menu */}
               {isDropdownVisible && (
                 <div className="absolute top-full right-1 bg-white text-black p-2 rounded-lg shadow-lg w-40">
                   <p className="text-blue-700 font-semibold text-center">
