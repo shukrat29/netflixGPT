@@ -2,7 +2,7 @@
 
 ### 🚀 Overview
 
-**NetflixGPT** is a modern and dynamic movie streaming web application built with **React.js**, integrated with the **TMDB API** and **OpenAI API**. It delivers real-time movie data, search capabilities, and a smooth browsing experience—all packaged in a clean, responsive UI.
+**NetflixGPT** is a modern and dynamic movie streaming web application built with **React.js**, **Firebase**, **Tailwind css** integrated with the **TMDB API** and **OpenAI API**. It delivers real-time movie data, search capabilities, and a smooth browsing experience—all packaged in a clean, responsive UI.
 
 Deployed on **Firebase** for fast and scalable performance.
 
